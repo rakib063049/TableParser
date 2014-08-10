@@ -150,23 +150,31 @@ module TableScript
       return html
     end
 
-    def parse_data2(html, data)
-      new_array={}
+    def parse_data_step_1(html, data)
+      i=-1
+      data_array=[]
 
       data.each_with_index do |row, index|
         row.each do |col|
-          (0..col[:rowspan]).each do
-            new_row = data[index+1] << col
-            puts "new_row:: #{new_row.inspect}"
+          (0..col[:rowspan]).each do |n|
+            if index == 0
+              i+=1
+              data[i].delete_at(0) if i == 0
+              new_col = {text: col[:text], rowspan: 1}
+              new_row = data[i]
+              new_row = new_row.insert(0, new_col) if new_row.present?
+              data_array << new_row if new_row.present?
+            end
           end
         end
       end
+      parse_data(html, data_array)
     end
 
     def generate_table(data)
       html = "<table class='table table-bordered'>"
       html << @table_head
-      html = TableScript::HtmlTable.new.parse_data(html, data)
+      html = TableScript::HtmlTable.new.parse_data_step_1(html, data)
       html << "</table>"
       return html
     end

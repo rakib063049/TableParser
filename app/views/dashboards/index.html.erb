@@ -3,3 +3,31 @@
 <br><br><br>
 
 <%= @htm_table.html_safe %>
+
+<% i=-1 %>
+<% j=0 %>
+<% data_array=[] %>
+
+<% @data_table.each_with_index do |row, index| %>
+    <% row.each do |col| %>
+        <% (0..col[:rowspan]).each do |n| %>
+            <%= index %>
+            <% if index == j %>
+                <% i+=1 %>
+                <% @data_table[i].delete_at(0) if i == 0 %>
+                <% new_col = {text: col[:text], rowspan: 1} %>
+                <% new_row = @data_table[i] %>
+                <% new_row = new_row.insert(0, new_col) if new_row.present? %>
+                <% data_array << new_row if new_row.present? %>
+            <% end %>
+        <% end %>
+    <% end %>
+    <% j+=1 %>
+<% end %>
+<%#= data_array.inspect %>
+<%= TableScript::HtmlTable.new.generate_table(data_array).html_safe %>
+<%#= @htm_table.html_safe %>
+====================================================================<br>
+<% data_array.each do |data| %>
+    <%= data.inspect %> <br><br>
+<% end %>
