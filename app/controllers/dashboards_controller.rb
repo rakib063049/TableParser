@@ -1,8 +1,8 @@
 require 'table_script'
 class DashboardsController < ApplicationController
   def index
-    table_scrap = TableScript::Sucks.new
-    @data_table = table_scrap.scrap
+    @data_table = TableScript::HtmlTable.new.scrap_table
+    @htm_table = TableScript::HtmlTable.new.generate_table(@data_table)
   end
 
   def sample_table

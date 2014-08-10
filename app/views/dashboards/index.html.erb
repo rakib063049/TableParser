@@ -2,16 +2,4 @@
 <%= link_to "Sample Table", sample_table_dashboards_path %>
 <br><br><br>
 
-
-<%
-   h = {"monkeys" => {"hamburgers" => ["love", "eat"],
-                      "boulders" => ["hate", "throw"]},
-        "stonemasons" => {"boulders" => ["love", "use"],
-                          "hamburgers" => ["love", "eat"],
-                          "vandals" => ["hate", "sue"]}}
-   html = "<table class='table table-bordered'>"
-   html, new_line = TableScript::Sucks.new.parse_data(html, h)
-   html << "</table>"
-%>
-
-<%= html.html_safe %>
+<%= @htm_table.html_safe %>
