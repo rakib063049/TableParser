@@ -133,7 +133,6 @@ module TableScript
           data.merge({text: col.text, rowspan: col.attr("rowspan").to_i})
         end
       end
-      puts details.inspect
       return details
     end
 
@@ -156,11 +155,11 @@ module TableScript
 
       data.each_with_index do |row, index|
         row.each do |col|
-          (0..col[:rowspan]).each do |n|
+          (1..col[:rowspan]).each do |n|
             if index == 0
               i+=1
               data[i].delete_at(0) if i == 0
-              new_col = {text: col[:text], rowspan: 1}
+              new_col = {text: col[:text], rowspan: 0}
               new_row = data[i]
               new_row = new_row.insert(0, new_col) if new_row.present?
               data_array << new_row if new_row.present?
@@ -171,10 +170,34 @@ module TableScript
       parse_data(html, data_array)
     end
 
+    def general_paraser(data)
+      i=-1
+      j=0
+      data_array=[]
+
+      data.each_with_index do |row, index|
+        row.each do |col|
+          (1..col[:rowspan]).each do |n|
+            if index == j
+              i+=1
+              data[i].delete_at(j) if i == j
+              new_col = {text: col[:text], rowspan: 0}
+              new_row = data[i]
+              new_row = new_row.insert(j, new_col) if new_row.present?
+              data_array << new_row if new_row.present?
+            end
+          end
+          j+=1
+        end
+      end
+      return data_array
+    end
+
+
     def generate_table(data)
       html = "<table class='table table-bordered'>"
       html << @table_head
-      html = TableScript::HtmlTable.new.parse_data_step_1(html, data)
+      html = TableScript::HtmlTable.new.parse_data(html, data)
       html << "</table>"
       return html
     end
