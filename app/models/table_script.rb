@@ -171,26 +171,52 @@ module TableScript
     end
 
     def column_parser(data)
-      break_point = false
-      row.each_with_index do |col, col_index|
-        row_pointer = row_pointer <= 12 ? row_pointer : 0
-        unless break_point
-          if col[:rowspan] != 0
-            (1..col[:rowspan]).each do |n|
-              current_row = data[row_pointer]
-              current_row.delete_at(col_index) if current_row.present? && (n == 1)
+      data.each_with_index do |row, row_index|
+        row.each_with_index do |col, col_index|
+          if col[:rowspan] > 0
+            data[row_index..(col[:rowspan]-1)].each_with_index do |current_row, row_pointer|
+              puts "calling #{[row_index, col_index, row_pointer]}"
               new_col = {text: col[:text], rowspan: 0}
-              new_row = current_row.insert(col_index, new_col)
-              data_array.insert(row_pointer, new_row)
-              data_array.delete_at(row_pointer)
-              row_pointer+=1
+              row_pointer == 0 ? current_row[col_index].replace(new_col) : current_row.insert(col_index, new_col)
+              #puts "clsp #{current_row.inspect}\n"
+              data[row_pointer].replace(current_row)
             end
+            return data
           end
-          break_point = true
         end
       end
-      data_array
     end
+
+    def parser_complete(data)
+      data = column_parser(data)
+      puts "1:::data #{data}"
+      data = column_parser(data)
+      puts "2:::data #{data}"
+      data = column_parser(data)
+      puts "3:::data #{data}"
+      data = column_parser(data)
+      puts "4:::data #{data}"
+      data = column_parser(data)
+      puts "5:::data #{data}"
+      data = column_parser(data)
+      puts "6:::data #{data}"
+      data = column_parser(data)
+      puts "7:::data #{data}"
+      data = column_parser(data)
+      puts "8:::data #{data}"
+      data = column_parser(data)
+      puts "9:::data #{data}"
+      data = column_parser(data)
+      puts "10:::data #{data}"
+      data = column_parser(data)
+      puts "11:::data #{data}"
+      data = column_parser(data)
+      puts "12:::data #{data}"
+      data = column_parser(data)
+      puts "13:::data #{data}"
+      return data
+    end
+
 
     def general_parser(data, row_counter)
       data_array = data
