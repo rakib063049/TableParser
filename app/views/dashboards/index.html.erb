@@ -1,42 +1,11 @@
 <br><br><br>
 <%= link_to "Sample Table", sample_table_dashboards_path %>
 <br><br><br>
-
-<% @data_table.each_with_index do |data, index| %>
-    <%= "#{[index, data.size]}::#{data.inspect}" %> <br><br>
+<h3>Step#1</h3>
+<%= @step1.html_safe %>
+<h3>Step#2</h3>
+<%= @step2.html_safe %>
+<h3>Step#3</h3>
+<% @step3.each do |data| %>
+    <%= data %><br>
 <% end %>
-
-
-<%
-   ax = [[{:text=>"Main Data", :rowspan=>0}, {:text=>"Data A", :rowspan=>3}, {:text=>" ", :rowspan=>10}, {:text=>"Data b", :rowspan=>3}, {:text=>"Data c", :rowspan=>0}, {:text=>"Data d", :rowspan=>0}, {:text=>"Data e", :rowspan=>0}, {:text=>"Data r", :rowspan=>7}, {:text=>"Data g", :rowspan=>7}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data w", :rowspan=>0}, {:text=>"", :rowspan=>0}, {:text=>"Data k", :rowspan=>2}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data n", :rowspan=>0}, {:text=>"Data pData h\n            ", :rowspan=>0}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data o", :rowspan=>0}, {:text=>"Data i", :rowspan=>0}, {:text=>"Data u", :rowspan=>0}, {:text=>"Data y", :rowspan=>0}, {:text=>"Data t", :rowspan=>4}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data r", :rowspan=>6}, {:text=>"Data e", :rowspan=>0}, {:text=>"Data w", :rowspan=>0}, {:text=>"Data qq", :rowspan=>0}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data zz", :rowspan=>0}, {:text=>"Data xx", :rowspan=>0}, {:text=>"Data cc", :rowspan=>0}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data vv", :rowspan=>0}, {:text=>"Data bb", :rowspan=>0}, {:text=>"Data nn", :rowspan=>0}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data zzd", :rowspan=>2}, {:text=>"Data gg", :rowspan=>0}, {:text=>"Data hh", :rowspan=>2}, {:text=>"Data pp", :rowspan=>0}, {:text=>"Data cll", :rowspan=>3}, {:text=>"", :rowspan=>0}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data cwxwx", :rowspan=>0}, {:text=>"Data qatyh", :rowspan=>0}, {:text=>"Data djdj", :rowspan=>2}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data yhn", :rowspan=>0}, {:text=>"Data rfvc", :rowspan=>0}, {:text=>"Data yui", :rowspan=>0}, {:text=>"Data rty", :rowspan=>0}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data edc", :rowspan=>3}, {:text=>"Data xyw", :rowspan=>3}, {:text=>"Data zxc", :rowspan=>0}, {:text=>"Data xcv", :rowspan=>0}, {:text=>"Data yui", :rowspan=>0}, {:text=>"Data ryt", :rowspan=>0}, {:text=>"Data cwer", :rowspan=>3}, {:text=>"Data asd", :rowspan=>3}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data dfg", :rowspan=>0}, {:text=>"Data fgf", :rowspan=>0}, {:text=>"Data kkhk", :rowspan=>0}, {:text=>"Data jjj", :rowspan=>0}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data yyy", :rowspan=>0}, {:text=>"Data tt", :rowspan=>0}, {:text=>"Data ff", :rowspan=>0}, {:text=>"Data vv", :rowspan=>0}]]
-bx = [[{:text=>"Main Data", :rowspan=>0}, {:text=>"Data A", :rowspan=>0}, {:text=>" ", :rowspan=>10}, {:text=>"Data b", :rowspan=>3}, {:text=>"Data c", :rowspan=>0}, {:text=>"Data d", :rowspan=>0}, {:text=>"Data e", :rowspan=>0}, {:text=>"Data r", :rowspan=>7}, {:text=>"Data g", :rowspan=>7}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data A", :rowspan=>0}, {:text=>"Data w", :rowspan=>0}, {:text=>"", :rowspan=>0}, {:text=>"Data k", :rowspan=>2}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data A", :rowspan=>0}, {:text=>"Data n", :rowspan=>0}, {:text=>"Data pData h\n            ", :rowspan=>0}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data o", :rowspan=>0}, {:text=>"Data i", :rowspan=>0}, {:text=>"Data u", :rowspan=>0}, {:text=>"Data y", :rowspan=>0}, {:text=>"Data t", :rowspan=>4}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data r", :rowspan=>6}, {:text=>"Data e", :rowspan=>0}, {:text=>"Data w", :rowspan=>0}, {:text=>"Data qq", :rowspan=>0}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data zz", :rowspan=>0}, {:text=>"Data xx", :rowspan=>0}, {:text=>"Data cc", :rowspan=>0}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data vv", :rowspan=>0}, {:text=>"Data bb", :rowspan=>0}, {:text=>"Data nn", :rowspan=>0}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data zzd", :rowspan=>2}, {:text=>"Data gg", :rowspan=>0}, {:text=>"Data hh", :rowspan=>2}, {:text=>"Data pp", :rowspan=>0}, {:text=>"Data cll", :rowspan=>3}, {:text=>"", :rowspan=>0}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data cwxwx", :rowspan=>0}, {:text=>"Data qatyh", :rowspan=>0}, {:text=>"Data djdj", :rowspan=>2}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data yhn", :rowspan=>0}, {:text=>"Data rfvc", :rowspan=>0}, {:text=>"Data yui", :rowspan=>0}, {:text=>"Data rty", :rowspan=>0}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data edc", :rowspan=>3}, {:text=>"Data xyw", :rowspan=>3}, {:text=>"Data zxc", :rowspan=>0}, {:text=>"Data xcv", :rowspan=>0}, {:text=>"Data yui", :rowspan=>0}, {:text=>"Data ryt", :rowspan=>0}, {:text=>"Data cwer", :rowspan=>3}, {:text=>"Data asd", :rowspan=>3}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data dfg", :rowspan=>0}, {:text=>"Data fgf", :rowspan=>0}, {:text=>"Data kkhk", :rowspan=>0}, {:text=>"Data jjj", :rowspan=>0}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data yyy", :rowspan=>0}, {:text=>"Data tt", :rowspan=>0}, {:text=>"Data ff", :rowspan=>0}, {:text=>"Data vv", :rowspan=>0}]]
-cx=[[{:text=>"Main Data", :rowspan=>0}, {:text=>"Data A", :rowspan=>0}, {:text=>" ", :rowspan=>0}, {:text=>"Data b", :rowspan=>3}, {:text=>"Data c", :rowspan=>0}, {:text=>"Data d", :rowspan=>0}, {:text=>"Data e", :rowspan=>0}, {:text=>"Data r", :rowspan=>7}, {:text=>"Data g", :rowspan=>7}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data A", :rowspan=>0}, {:text=>" ", :rowspan=>0}, {:text=>"Data w", :rowspan=>0}, {:text=>"", :rowspan=>0}, {:text=>"Data k", :rowspan=>2}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data A", :rowspan=>0}, {:text=>" ", :rowspan=>0}, {:text=>"Data n", :rowspan=>0}, {:text=>"Data pData h\n            ", :rowspan=>0}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data o", :rowspan=>0}, {:text=>" ", :rowspan=>0}, {:text=>"Data i", :rowspan=>0}, {:text=>"Data u", :rowspan=>0}, {:text=>"Data y", :rowspan=>0}, {:text=>"Data t", :rowspan=>4}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data r", :rowspan=>6}, {:text=>" ", :rowspan=>0}, {:text=>"Data e", :rowspan=>0}, {:text=>"Data w", :rowspan=>0}, {:text=>"Data qq", :rowspan=>0}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data zz", :rowspan=>0}, {:text=>" ", :rowspan=>0}, {:text=>"Data xx", :rowspan=>0}, {:text=>"Data cc", :rowspan=>0}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data vv", :rowspan=>0}, {:text=>" ", :rowspan=>0}, {:text=>"Data bb", :rowspan=>0}, {:text=>"Data nn", :rowspan=>0}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data zzd", :rowspan=>2}, {:text=>" ", :rowspan=>0}, {:text=>"Data gg", :rowspan=>0}, {:text=>"Data hh", :rowspan=>2}, {:text=>"Data pp", :rowspan=>0}, {:text=>"Data cll", :rowspan=>3}, {:text=>"", :rowspan=>0}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data cwxwx", :rowspan=>0}, {:text=>" ", :rowspan=>0}, {:text=>"Data qatyh", :rowspan=>0}, {:text=>"Data djdj", :rowspan=>2}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data yhn", :rowspan=>0}, {:text=>" ", :rowspan=>0}, {:text=>"Data rfvc", :rowspan=>0}, {:text=>"Data yui", :rowspan=>0}, {:text=>"Data rty", :rowspan=>0}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data edc", :rowspan=>3}, {:text=>"Data xyw", :rowspan=>3}, {:text=>"Data zxc", :rowspan=>0}, {:text=>"Data xcv", :rowspan=>0}, {:text=>"Data yui", :rowspan=>0}, {:text=>"Data ryt", :rowspan=>0}, {:text=>"Data cwer", :rowspan=>3}, {:text=>"Data asd", :rowspan=>3}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data dfg", :rowspan=>0}, {:text=>"Data fgf", :rowspan=>0}, {:text=>"Data kkhk", :rowspan=>0}, {:text=>"Data jjj", :rowspan=>0}], [{:text=>"Main Data", :rowspan=>0}, {:text=>"Data yyy", :rowspan=>0}, {:text=>"Data tt", :rowspan=>0}, {:text=>"Data ff", :rowspan=>0}, {:text=>"Data vv", :rowspan=>0}]]
-
-
-
-
-
-
-%>
-
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><br>
-<% ax.each_with_index do |data, index| %>
-    <%= "#{[index, data.size]}::#{data.inspect}" %> <br><br>
-<% end %>
-
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><br>
-<% bx.each_with_index do |data, index| %>
-    <%= "#{[index, data.size]}::#{data.inspect}" %> <br><br>
-<% end %>
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><br>
-<% cx.each_with_index do |data, index| %>
-    <%= "#{[index, data.size]}::#{data.inspect}" %> <br><br>
-<% end %>
-
-
-<%#= TableScript::HtmlTable.new.generate_table(ax).html_safe %>
-<%#= TableScript::HtmlTable.new.generate_table(bx).html_safe %>
-<%= TableScript::HtmlTable.new.generate_table(cx).html_safe %>
-<%#= TableScript::HtmlTable.new.generate_table(ax).html_safe %>
-====================================================================<br>
-<%= @htm_table.html_safe %>
