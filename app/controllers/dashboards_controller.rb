@@ -1,8 +1,16 @@
 require 'table_script'
 class DashboardsController < ApplicationController
+
   def index
-    @data_table = TableScript::HtmlTable.new.scrap_table
-    @htm_table = TableScript::HtmlTable.new.generate_table(@data_table)
+    parser = TableScript::HtmlTable.new
+    #Step#1
+    @step1 = parser.generate_table
+
+    #Step#2
+    @step2 = parser.generate_table({delete_column: 3})
+
+    #Step#3
+    @step3 = parser.generate_hash
   end
 
   def sample_table

@@ -17,21 +17,21 @@ module TableScript
         </tr>
       </thead>"
 
+      @table_head2 = "<thead>
+      <tr>
+        <th>Blue</th>
+        <th>Black</th>
+        <th>Red</th>
+        <th>Green</th>
+        <th>White</th>
+        <th>Grey</th>
+        <th>Purple</th>
+        <th>Yellow</th>
+        </tr>
+      </thead>"
+
       @html = <<-EOS
         <table border="1">
-          <thead>
-          <tr>
-            <th>Blue</th>
-            <th>Black</th>
-            <th>Pink</th>
-            <th>Red</th>
-            <th>Green</th>
-            <th>White</th>
-            <th>Grey</th>
-            <th>Purple</th>
-            <th>Yellow</th>
-          </tr>
-          </thead>
           <tbody>
           <tr>
             <td rowspan="13"><i>Main Data</i></td>
@@ -149,86 +149,47 @@ module TableScript
       return html
     end
 
-    def parse_data_step_1(html, data)
-      i=-1
-      data_array=[]
-
-      data.each_with_index do |row, index|
-        row.each do |col|
-          (1..col[:rowspan]).each do |n|
-            if index == 0
-              i+=1
-              data[i].delete_at(0) if i == 0
-              new_col = {text: col[:text], rowspan: 0}
-              new_row = data[i]
-              new_row = new_row.insert(0, new_col) if new_row.present?
-              data_array << new_row if new_row.present?
-            end
-          end
-        end
-      end
-      parse_data(html, data_array)
-    end
-
-    def column_parser(data)
-      break_point = false
-      row.each_with_index do |col, col_index|
-        row_pointer = row_pointer <= 12 ? row_pointer : 0
-        unless break_point
-          if col[:rowspan] != 0
-            (1..col[:rowspan]).each do |n|
-              current_row = data[row_pointer]
-              current_row.delete_at(col_index) if current_row.present? && (n == 1)
-              new_col = {text: col[:text], rowspan: 0}
-              new_row = current_row.insert(col_index, new_col)
-              data_array.insert(row_pointer, new_row)
-              data_array.delete_at(row_pointer)
-              row_pointer+=1
-            end
-          end
-          break_point = true
-        end
-      end
-      data_array
-    end
-
-    def general_parser(data, row_counter)
-      data_array = data
-      break_point = false
+    def column_parser(data, col_index=0)
       data.each_with_index do |row, row_index|
-        row_pointer = row_index
-        row.each_with_index do |col, col_index|
-          row_pointer = row_pointer <= 12 ? row_pointer : 0
-          puts "calling #{[row_index, col_index]}"
-          unless break_point
-            if col[:rowspan] != 0
-              (1..col[:rowspan]).each do |n|
-                current_row = data[row_pointer]
-                current_row.delete_at(col_index) if current_row.present? && (n == 1)
-                new_col = {text: col[:text], rowspan: 0}
-                new_row = current_row.insert(col_index, new_col)
-                puts "clsp #{row_pointer} #{current_row.inspect}\n"
-                data_array.insert(row_pointer, new_row)
-                data_array.delete_at(row_pointer)
-                row_pointer+=1
-              end
-            end
-            data_array
-            break_point = true
+        col = row[col_index]
+        if col[:rowspan] > 0
+          data[row_index..((row_index+col[:rowspan])-1)].each_with_index do |current_row, row_pointer|
+            new_col = {text: col[:text], rowspan: 0}
+            row_pointer == 0 ? current_row[col_index].replace(new_col) : current_row.insert(col_index, new_col)
+            data[row_index+row_pointer].replace(current_row)
           end
-          data_array
         end
-        row_counter+=1
       end
-      general_parser(data_array, row_counter) if row_counter <= 13
-      return data_array
+      puts "Calling >>> #{col_index}"
+      col_index+=1
+      data = column_parser(data, col_index) if col_index <= 8
+      return data
     end
 
+    def delete_column(data, col_number)
+      data.map { |row| row.delete_at(col_number-1) }
+      return data
+    end
 
-    def generate_table(data)
+    def generate_hash
+      parser = TableScript::HtmlTable.new
+      data = parser.column_parser(parser.scrap_table)
+      data = parser.delete_column(data, 3)
+      data
+    end
+
+    def generate_table(options={})
+      parser = TableScript::HtmlTable.new
+      data = parser.column_parser(parser.scrap_table)
+      if options[:delete_column].present?
+        table_head = @table_head2
+        data = parser.delete_column(data, options[:delete_column])
+      else
+        table_head = @table_head
+      end
       html = "<table class='table table-bordered'>"
-      html << @table_head
-      html = TableScript::HtmlTable.new.parse_data(html, data)
+      html << table_head
+      html = parser.parse_data(html, data)
       html << "</table>"
       return html
     end
