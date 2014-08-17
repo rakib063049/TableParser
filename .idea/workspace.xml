@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9adf747e-8a5f-44ee-967d-914317608d28" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/dashboards/index.html.erb" afterPath="$PROJECT_DIR$/app/views/dashboards/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/table_script.rb" afterPath="$PROJECT_DIR$/app/models/table_script.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TableParser.iws" />
@@ -35,7 +33,7 @@
       <file leaf-file-name="table_script.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/table_script.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="222" column="66" selection-start="6363" selection-end="6363" vertical-scroll-proportion="0.46957877" vertical-offset="3473" max-vertical-offset="4114">
+            <state line="231" column="24" selection-start="6591" selection-end="6592" vertical-scroll-proportion="1.9236947" vertical-offset="3448" max-vertical-offset="4114">
               <folding />
             </state>
           </provider>
@@ -44,7 +42,7 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/dashboards/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="0" selection-start="12226" selection-end="12226" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="1071">
+            <state line="10" column="0" selection-start="12226" selection-end="12226" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="1071">
               <folding />
             </state>
           </provider>
@@ -53,7 +51,7 @@
       <file leaf-file-name="dashboards_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/dashboards_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="43" selection-start="160" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+            <state line="4" column="43" selection-start="160" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="289">
               <folding />
             </state>
           </provider>
@@ -354,15 +352,18 @@
       <created>1407751617346</created>
       <updated>1407751617346</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;Conflicts:&#10;&#9;.idea/TableScript.iml&#10;&#9;.idea/workspace.xml&#10;">
+      <created>1407762152069</created>
+      <updated>1407762152069</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-4" width="1368" height="773" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935917" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5842027" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5842027" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935917" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -377,6 +378,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935917" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -408,6 +410,27 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/models/table_script.rb">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="222" column="66" selection-start="6363" selection-end="6363" vertical-scroll-proportion="0.0" vertical-offset="3473" max-vertical-offset="4114">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/dashboards/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="12226" selection-end="12226" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="1071">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/dashboards_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="43" selection-start="160" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="289">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/table_script.rb">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="199" column="62" selection-start="5242" selection-end="5242" vertical-scroll-proportion="0.0" vertical-offset="2181" max-vertical-offset="3587">
           <folding />
         </state>
@@ -415,9 +438,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/dashboards/sample_table.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="20" selection-start="317" selection-end="317" vertical-scroll-proportion="0.0" vertical-offset="1105" max-vertical-offset="14161">
-          <folding />
-        </state>
+        <state line="13" column="20" selection-start="317" selection-end="317" vertical-scroll-proportion="0.0" vertical-offset="1105" max-vertical-offset="14161" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/dashboards/index.html.erb">
@@ -436,9 +457,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/dashboards/sample_table.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="20" selection-start="317" selection-end="317" vertical-scroll-proportion="0.0" vertical-offset="1105" max-vertical-offset="14161">
-          <folding />
-        </state>
+        <state line="13" column="20" selection-start="317" selection-end="317" vertical-scroll-proportion="0.0" vertical-offset="1105" max-vertical-offset="14161" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/dashboards/index.html.erb">
@@ -457,9 +476,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/dashboards/sample_table.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="169" selection-end="2531" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="14161">
-          <folding />
-        </state>
+        <state line="5" column="0" selection-start="169" selection-end="2531" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="14161" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/table_script.rb">
@@ -471,9 +488,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/dashboards/sample_table.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="169" selection-end="2531" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="14161">
-          <folding />
-        </state>
+        <state line="5" column="0" selection-start="169" selection-end="2531" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="14161" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/table_script.rb">
@@ -485,9 +500,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/dashboards/sample_table.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="169" selection-end="2531" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="14161">
-          <folding />
-        </state>
+        <state line="5" column="0" selection-start="169" selection-end="2531" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="14161" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/table_script.rb">
@@ -499,16 +512,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/dashboards/sample_table.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="169" selection-end="2531" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="14161">
-          <folding />
-        </state>
+        <state line="5" column="0" selection-start="169" selection-end="2531" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="14161" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/dashboards/sample_table.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="20" selection-start="317" selection-end="317" vertical-scroll-proportion="34.0" vertical-offset="1105" max-vertical-offset="14161">
-          <folding />
-        </state>
+        <state line="13" column="20" selection-start="317" selection-end="317" vertical-scroll-proportion="34.0" vertical-offset="1105" max-vertical-offset="14161" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/dashboards_controller.rb">
@@ -520,14 +529,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/dashboards/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="12226" selection-end="12226" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="1071">
+        <state line="10" column="0" selection-start="12226" selection-end="12226" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="1071">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/table_script.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="222" column="66" selection-start="6363" selection-end="6363" vertical-scroll-proportion="0.46957877" vertical-offset="3473" max-vertical-offset="4114">
+        <state line="231" column="24" selection-start="6591" selection-end="6592" vertical-scroll-proportion="1.9236947" vertical-offset="3448" max-vertical-offset="4114">
           <folding />
         </state>
       </provider>
