@@ -41,7 +41,7 @@ module TableScript
             <td><i>Data c</i></td>
             <td><i>Data d</i></td>
             <td>Data e</td>
-            <td rowspan="7">Data r</td>
+            <td rowspan="7">Data r1</td>
             <td rowspan="7">Data g</td>
           </tr>
           <tr>
@@ -62,7 +62,7 @@ module TableScript
             <td rowspan="4">Data t</td>
           </tr>
           <tr>
-            <td rowspan="6">Data r</td>
+            <td rowspan="6">Data r2</td>
             <td><i>Data e</i></td>
             <td><i>Data w</i></td>
             <td><i>Data qq</i></td>
@@ -174,7 +174,7 @@ module TableScript
     def array_to_hash(array)
       count = 0
       hash = Hash.new
-      (array.length / 2).times do
+      (array.length-1).times do
         hash[array[count]] = array[count+1]
         count += 1
       end
