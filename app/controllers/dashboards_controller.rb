@@ -10,7 +10,7 @@ class DashboardsController < ApplicationController
     @step2 = parser.generate_table({delete_column: 3})
 
     #Step#3
-    @step3 = parser.generate_hash
+    @step3 = parser.regenerate_array
   end
 
   def sample_table

@@ -171,11 +171,32 @@ module TableScript
       return data
     end
 
-    def generate_hash
+    def array_to_hash(array)
+      count = 0
+      hash = Hash.new
+      (array.length / 2).times do
+        hash[array[count]] = array[count+1]
+        count += 1
+      end
+      return hash
+    end
+
+    def regenerate_array
+      array = []
+      tem_array = []
+
       parser = TableScript::HtmlTable.new
       data = parser.column_parser(parser.scrap_table)
       data = parser.delete_column(data, 3)
-      data
+      data.each do |row|
+        row.each do |col|
+          node = col[:text]
+          tem_array << node
+        end
+        array << array_to_hash(tem_array)
+        tem_array = []
+      end
+      return array
     end
 
     def generate_table(options={})

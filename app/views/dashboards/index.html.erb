@@ -6,6 +6,8 @@
 <h3>Step#2</h3>
 <%= @step2.html_safe %>
 <h3>Step#3</h3>
-<% @step3.each do |data| %>
-    <%= data %><br>
+
+<% @step3.each do |array| %>
+    <%= "#{array.size}::#{array}" %><br>
 <% end %>
+
