@@ -196,8 +196,30 @@ module TableScript
         array << array_to_hash(tem_array)
         tem_array = []
       end
-      return array
+      return regenerate_hash(array)
     end
+
+    def regenerate_hash(data)
+      result = []
+      temp_array=[]
+
+      8.times do |n|
+        data.each_with_index do |current_array, current_index|
+          new_element = false
+          key = current_array.keys[n]
+          next_index = current_index+1
+          next_key = next_index < data.size ? data[next_index].keys[n] : nil
+          new_element = true if key.to_s != next_key.to_s
+          temp_array << current_array[key]
+          if new_element
+            result << {key.to_s => temp_array.uniq}
+            temp_array = []
+          end
+        end
+      end
+      return result
+    end
+
 
     def generate_table(options={})
       parser = TableScript::HtmlTable.new
