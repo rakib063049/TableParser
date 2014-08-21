@@ -133,16 +133,14 @@ module TableScript
         end
       end
       details = delete_column(details, options[:delete_column]) if options[:delete_column].present?
-      return details
+      return details.first
     end
 
 
     def table_header(data)
       html = '<tbody><tr>'
       data.each do |row|
-        row.each do |col|
-          html << "<th>#{col[:text]}</td>"
-        end
+          html << "<th>#{row[:text]}</td>"
       end
       html << '</tr></tbody>'
       return html
@@ -237,7 +235,6 @@ module TableScript
       header = scrap_table_header({delete_column: 3})
       data = column_parser(scrap_table)
       data = delete_column(data, 3)
-      header = header.first
       8.times do |n|
         data.each_with_index do |row, index|
           @key = header[n][:text]
