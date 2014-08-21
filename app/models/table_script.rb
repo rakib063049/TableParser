@@ -3,35 +3,21 @@ module TableScript
   class HtmlTable
 
     def initialize
-      @table_head = "<thead>
-      <tr>
-        <th>Blue</th>
-        <th>Black</th>
-        <th>Pink</th>
-        <th>Red</th>
-        <th>Green</th>
-        <th>White</th>
-        <th>Grey</th>
-        <th>Purple</th>
-        <th>Yellow</th>
-        </tr>
-      </thead>"
-
-      @table_head2 = "<thead>
-      <tr>
-        <th>Blue</th>
-        <th>Black</th>
-        <th>Red</th>
-        <th>Green</th>
-        <th>White</th>
-        <th>Grey</th>
-        <th>Purple</th>
-        <th>Yellow</th>
-        </tr>
-      </thead>"
-
       @html = <<-EOS
         <table border="1">
+         <thead>
+            <tr>
+              <th>Blue</th>
+              <th>Black</th>
+              <th>Pink</th>
+              <th>Red</th>
+              <th>Green</th>
+              <th>White</th>
+              <th>Grey</th>
+              <th>Purple</th>
+              <th>Yellow</th>
+              </tr>
+          </thead>"
           <tbody>
           <tr>
             <td rowspan="13"><i>Main Data</i></td>
@@ -137,6 +123,31 @@ module TableScript
     end
 
 
+    def scrap_table_header(options={})
+      data = {}
+      doc = Nokogiri::HTML(@html)
+      rows = doc.xpath('//table/thead/tr')
+      details = rows.collect do |row|
+        row.xpath('./th').map do |col|
+          data.merge({text: col.text})
+        end
+      end
+      details = delete_column(details, options[:delete_column]) if options[:delete_column].present?
+      return details
+    end
+
+
+    def table_header(data)
+      html = '<tbody><tr>'
+      data.each do |row|
+        row.each do |col|
+          html << "<th>#{col[:text]}</td>"
+        end
+      end
+      html << '</tr></tbody>'
+      return html
+    end
+
     def parse_data(html, data)
       data.each do |row|
         html << '<tr>'
@@ -183,18 +194,17 @@ module TableScript
 
     def regenerate_array
       array = []
-      tem_array = []
+      temp_array = []
 
-      parser = TableScript::HtmlTable.new
-      data = parser.column_parser(parser.scrap_table)
-      data = parser.delete_column(data, 3)
+      data = column_parser(scrap_table)
+      data = delete_column(data, 3)
       data.each do |row|
         row.each do |col|
           node = col[:text]
-          tem_array << node
+          temp_array << node
         end
-        array << array_to_hash(tem_array)
-        tem_array = []
+        array << array_to_hash(temp_array)
+        temp_array = []
       end
       return regenerate_hash(array)
     end
@@ -220,19 +230,35 @@ module TableScript
       return result
     end
 
+    def create_hash_with_header
+      array = []
+      temp_array = []
+
+      header = scrap_table_header({delete_column: 3})
+      data = column_parser(scrap_table)
+      data = delete_column(data, 3)
+      header = header.first
+      8.times do |n|
+        data.each_with_index do |row, index|
+          @key = header[n][:text]
+          temp_array << row[n][:text]
+        end
+        array << {@key.to_s => temp_array.uniq}
+        temp_array = []
+      end
+      return array
+    end
+
 
     def generate_table(options={})
-      parser = TableScript::HtmlTable.new
-      data = parser.column_parser(parser.scrap_table)
-      if options[:delete_column].present?
-        table_head = @table_head2
-        data = parser.delete_column(data, options[:delete_column])
-      else
-        table_head = @table_head
-      end
+      table_head = scrap_table_header(options)
+      data = column_parser(scrap_table)
+      data = delete_column(data, options[:delete_column]) if options[:delete_column]
+      table_head = table_header(table_head)
+
       html = "<table class='table table-bordered'>"
       html << table_head
-      html = parser.parse_data(html, data)
+      html = parse_data(html, data)
       html << "</table>"
       return html
     end

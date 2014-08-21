@@ -11,6 +11,9 @@ class DashboardsController < ApplicationController
 
     #Step#3
     @step3 = parser.regenerate_array
+
+    #Step#4
+    @step4 = parser.create_hash_with_header
   end
 
   def sample_table
